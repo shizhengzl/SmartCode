@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBases\Column.cs" />
+    <Compile Include="DataBases\DataBase.cs" />
+    <Compile Include="DataBases\DataBaseAddress.cs" />
+    <Compile Include="DataBases\DataBaseType.cs" />
+    <Compile Include="DataBases\Table.cs" />
+    <Compile Include="Extensions\CsharpDataTypeExtension.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\EnumUsually.cs" />
+    <Compile Include="Extensions\FileExtenstion.cs" />
+    <Compile Include="Extensions\PropertyExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

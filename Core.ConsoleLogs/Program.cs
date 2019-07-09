@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.UsuallyCommon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,10 @@ namespace Core.ConsoleLogs
     {
         static void Main(string[] args)
         {
+            var result = EnumExtensions.GetEnumClasses<AuditStatus>();
+
+            var b = "1".ToEnum<AuditStatus>();
+            var c = b.GetDescription();
         }
     }
 }
