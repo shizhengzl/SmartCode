@@ -47,10 +47,12 @@
     <Compile Include="DataBases\DataBaseType.cs" />
     <Compile Include="DataBases\Table.cs" />
     <Compile Include="Extensions\CsharpDataTypeExtension.cs" />
+    <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\EnumUsually.cs" />
     <Compile Include="Extensions\FileExtenstion.cs" />
     <Compile Include="Extensions\PropertyExtension.cs" />
+    <Compile Include="Extensions\StringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
