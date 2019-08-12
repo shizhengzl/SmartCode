@@ -72,7 +72,7 @@
         <Parent guid="guidCodeGeneratorPackageCmdSet" id="RightMenuProject" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Project Menu</ButtonText>
+          <ButtonText>项目菜单</ButtonText>
         </Strings>
       </Button>
 

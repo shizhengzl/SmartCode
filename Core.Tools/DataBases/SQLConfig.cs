@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Tools.DataBases
+namespace Core.Tools
 {
     public class SQLConfig
     {

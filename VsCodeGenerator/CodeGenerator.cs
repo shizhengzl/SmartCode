@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Globalization;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using EnvDTE;
+using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Task = System.Threading.Tasks.Task;
@@ -25,6 +28,7 @@ namespace VsCodeGenerator
         /// Command menu group (command set GUID).
         /// </summary>
         public static readonly Guid CommandSet = new Guid("66d33b4a-42bc-4584-9c79-9b0a132d4df8");
+        public static readonly Guid CommandSetNote = new Guid("66d33b4a-42bc-4584-9c79-9b0a132d4df7");
 
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -100,16 +104,20 @@ namespace VsCodeGenerator
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "CodeGenerator";
 
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                this.package,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+
+            var dte = this.ServiceProvider.GetServiceAsync(typeof(DTE)) as DTE2;
+
+            //// Show a message box to prove we were here
+            //VsShellUtilities.ShowMessageBox(
+            //    this.package,
+            //    message,
+            //    title,
+            //    OLEMSGICON.OLEMSGICON_INFO,
+            //    OLEMSGBUTTON.OLEMSGBUTTON_OK,
+            //    OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
         }
+
+      
     }
 }

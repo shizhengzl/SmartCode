@@ -16,11 +16,7 @@ namespace Core.ConsoleLogs
     class Program
     {
         static void Main(string[] args)
-        {
-
-
-          
-
+        { 
 
             const string csFile = @"D:\ClassDemo.cs";
             var text = csFile.GetFileContext();

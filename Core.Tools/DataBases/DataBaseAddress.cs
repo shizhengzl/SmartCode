@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Core.UsuallyCommon;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.UsuallyCommon
+namespace Core.Tools
 {
     /// <summary>
     /// 数据库连接地址管理

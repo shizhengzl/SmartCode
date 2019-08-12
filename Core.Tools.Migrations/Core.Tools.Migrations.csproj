@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{39223B10-099F-4E78-A4C3-4F11178080A5}</ProjectGuid>
+    <ProjectGuid>{39A62ED9-E51D-49D6-8981-6740F898F7FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.UsuallyCommon</RootNamespace>
-    <AssemblyName>Core.UsuallyCommon</AssemblyName>
+    <RootNamespace>Core.Tools.Migrations</RootNamespace>
+    <AssemblyName>Core.Tools.Migrations</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,7 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,15 +50,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\CsharpDataTypeExtension.cs" />
-    <Compile Include="Extensions\DateTimeExtension.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\EnumUsually.cs" />
-    <Compile Include="Extensions\FileExtenstion.cs" />
-    <Compile Include="Extensions\PropertyExtension.cs" />
-    <Compile Include="Extensions\StringHelper.cs" />
+    <Compile Include="DefaultDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
+      <Project>{5169497e-356c-4109-ba07-425f415c461d}</Project>
+      <Name>Core.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.UsuallyCommon\Core.UsuallyCommon.csproj">
+      <Project>{39223b10-099f-4e78-a4c3-4f11178080a5}</Project>
+      <Name>Core.UsuallyCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
