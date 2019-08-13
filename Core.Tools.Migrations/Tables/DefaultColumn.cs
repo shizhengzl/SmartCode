@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Core.Tools
 {
-    /// <summary>
-    /// 列
-    /// </summary>
-    public class Column : Table
+    public class DefaultColumn
     {
+        /// <summary>
+        /// 主键
+        /// </summary>
+        [Key]
+        public Int64 Id { get; set; }
+
         /// <summary>
         /// 列名
         /// </summary>

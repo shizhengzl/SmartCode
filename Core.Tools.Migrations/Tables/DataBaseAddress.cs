@@ -1,6 +1,8 @@
-﻿using Core.UsuallyCommon;
+﻿using Core.Tools.Migrations;
+using Core.UsuallyCommon;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +15,18 @@ namespace Core.Tools
     public class DataBaseAddress
     {
         /// <summary>
+        /// 主键
+        /// </summary>
+        [Key]
+        public Int32 Id { get; set; }
+        /// <summary>
         /// 连接服务器地址
         /// </summary>
-        public String ServerAddress { get; set; }
+        public String Address { get; set; }
         /// <summary>
         /// 连接账号
         /// </summary>
-        public String Accout { get; set; }
+        public String User { get; set; }
         /// <summary>
         /// 连接密码
         /// </summary>
@@ -38,8 +45,14 @@ namespace Core.Tools
         public DataBaseType DataBaseType { get; set; }
 
         /// <summary>
+        /// 链接字符串
+        /// </summary>
+        public string ConnectionStrings { get; set; }
+
+
+        /// <summary>
         /// 数据库集合
         /// </summary>
-        public List<DataBase> ListDataBase { get; set; }
+        public List<DataBase> DataBases { get; set; }
     }
 }

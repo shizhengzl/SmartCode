@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.UsuallyCommon
+namespace Core.Tools
 {
     /// <summary>
     /// 数据库类型

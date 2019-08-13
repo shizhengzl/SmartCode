@@ -1,4 +1,6 @@
-﻿using Core.Toolss;
+﻿using Core.Tools;
+using Core.Tools.Migrations;
+using Core.Toolss;
 using Core.UsuallyCommon;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -10,14 +12,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-
+using AutoMapper;
 namespace Core.ConsoleLogs
 {
     class Program
     {
         static void Main(string[] args)
-        { 
+        {
 
+            InitDataBaseHelper initDataBaseHelper = new InitDataBaseHelper();
+
+            DefaultDB dbContext = new DefaultDB();
+            var dbaddressre = dbContext.DataBaseAddresses.ToList();
+            foreach (var item in dbaddressre)
+            {
+                initDataBaseHelper.InitDataBase(item);
+
+
+                if(item.DataBases.Count > 0)
+                {
+                    foreach (var database in item.DataBases)
+                    {
+                        initDataBaseHelper.InitTable(database);
+
+
+                        if(database.Tables.Count > 0)
+                        {
+                            var firsttable = database.Tables.FirstOrDefault();
+                            initDataBaseHelper.InitColumn(firsttable);
+
+
+                          
+                            var b =  firsttable;
+                             
+                        }
+                    }
+                }
+            }
+            Console.ReadLine();
+
+            return;
             const string csFile = @"D:\ClassDemo.cs";
             var text = csFile.GetFileContext();
             // Parse .cs file using Roslyn SyntaxTree

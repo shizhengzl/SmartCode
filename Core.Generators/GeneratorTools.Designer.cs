@@ -1,4 +1,4 @@
-﻿namespace Core.WindowsGenerator
+﻿namespace Core.Generators
 {
     partial class GeneratorTools
     {
@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 482);
+            this.ClientSize = new System.Drawing.Size(1186, 527);
             this.Name = "GeneratorTools";
             this.Text = "GeneratorTools";
             this.ResumeLayout(false);

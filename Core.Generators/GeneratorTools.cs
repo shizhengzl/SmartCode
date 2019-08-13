@@ -1,4 +1,6 @@
-﻿using EnvDTE80;
+﻿
+
+using EnvDTE80;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Core.WindowsGenerator
+namespace Core.Generators
 {
     public partial class GeneratorTools : Form
     {
@@ -18,21 +20,15 @@ namespace Core.WindowsGenerator
             InitializeComponent();
         }
 
-
-        public GeneratorTools(DTE2 dte)
+        public GeneratorTools(DTE2 _dte)
         {
+            dte = _dte;
             InitializeComponent();
-            HasDte = true;
-            _dte = dte;
         }
 
-        /// <summary>
-        /// 是否有DTE
-        /// </summary>
-        public bool HasDte { get; set; } = false;
-        /// <summary>
-        /// DTE 对象
-        /// </summary>
-        public DTE2 _dte { get; set; }
+        public DTE2 dte { get; set; }
+
+
+
     }
 }

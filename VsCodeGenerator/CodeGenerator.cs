@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Core.Generators;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
@@ -106,8 +107,10 @@ namespace VsCodeGenerator
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
 
 
-            var dte = this.ServiceProvider.GetServiceAsync(typeof(DTE)) as DTE2;
-
+           
+            DTE2 dte = (DTE2)this.ServiceProvider.GetServiceAsync(typeof(DTE)).Result;
+            GeneratorTools tools = new GeneratorTools(dte);
+            tools.Show();
             //// Show a message box to prove we were here
             //VsShellUtilities.ShowMessageBox(
             //    this.package,

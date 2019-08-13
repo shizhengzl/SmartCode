@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Core.Tools
 {
+    [NotMapped]
     /// <summary>
     /// 数据库
     /// </summary>
@@ -24,6 +26,6 @@ namespace Core.Tools
         /// <summary>
         /// 表集合
         /// </summary>
-        public List<Table> ListTable { get; set; }
+        public List<Table> Tables { get; set; }
     }
 }

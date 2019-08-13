@@ -112,14 +112,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBases\Column.cs" />
-    <Compile Include="DataBases\DataBase.cs" />
-    <Compile Include="DataBases\DataBaseAddress.cs" />
-    <Compile Include="DataBases\DataBaseType.cs" />
-    <Compile Include="DataBases\DefaultColumns.cs" />
+    <Compile Include="ColumnCollectService\ColumnCollectService.cs" />
     <Compile Include="DataBases\InitDataBaseHelper.cs" />
-    <Compile Include="DataBases\SQLConfig.cs" />
-    <Compile Include="DataBases\Table.cs" />
+    <Compile Include="DataBases\SQLConfigHelper.cs" />
     <Compile Include="LangaugeParser\CsharpHelper.cs" />
     <Compile Include="LangaugeParser\CsharpParser.cs" />
     <Compile Include="LangaugeParser\CsharpProperty.cs" />
@@ -127,6 +122,10 @@
     <Compile Include="VisualHelper\VisualHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Tools.Migrations\Core.Tools.Migrations.csproj">
+      <Project>{39a62ed9-e51d-49d6-8981-6740f898f7fb}</Project>
+      <Name>Core.Tools.Migrations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.UsuallyCommon\Core.UsuallyCommon.csproj">
       <Project>{39223b10-099f-4e78-a4c3-4f11178080a5}</Project>
       <Name>Core.UsuallyCommon</Name>
