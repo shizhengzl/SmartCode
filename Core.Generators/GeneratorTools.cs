@@ -1,11 +1,12 @@
-﻿
-
+﻿using Core.Tools; 
+using EnvDTE;
 using EnvDTE80;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +21,33 @@ namespace Core.Generators
             InitializeComponent();
         }
 
-        public GeneratorTools(DTE2 _dte)
+        public GeneratorTools(DTE2 dte)
         {
-            dte = _dte;
             InitializeComponent();
+            ApplicationVsHelper._applicationObject = dte;
+            var fullname = dte.Solution.FileName;
+
+            var projects = dte.Solution.Projects;
+
+            List<String> listUrl = ApplicationVsHelper.GetSolutionFiles("*.cs");
+
+            listUrl.ForEach(x => {
+                CsharpParser parser = new CsharpParser(x);
+                var cs = parser.GetClasses();
+            });
+
+
+           
         }
 
-        public DTE2 dte { get; set; }
+
+    
 
 
 
+        private void GeneratorTools_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

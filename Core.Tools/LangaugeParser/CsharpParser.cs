@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Core.Tools.LangaugeParser
+namespace Core.Tools
 {
     /// <summary>
     /// Csharp 字符串识别

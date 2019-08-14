@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(1186, 527);
             this.Name = "GeneratorTools";
             this.Text = "GeneratorTools";
+            this.Load += new System.EventHandler(this.GeneratorTools_Load);
             this.ResumeLayout(false);
 
         }

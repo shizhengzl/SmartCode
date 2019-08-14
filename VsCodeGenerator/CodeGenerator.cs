@@ -101,16 +101,22 @@ namespace VsCodeGenerator
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Event args.</param>
-        private void Execute(object sender, EventArgs e)
+        private  void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
 
-
-           
             DTE2 dte = (DTE2)this.ServiceProvider.GetServiceAsync(typeof(DTE)).Result;
+
             GeneratorTools tools = new GeneratorTools(dte);
             tools.Show();
+
+            //DTE2 dte2 = await package.GetServiceAsync(typeof(DTE)).ConfigureAwait(false) as DTE2;
+
+            //DTE2 dte = (DTE2)this.ServiceProvider.GetServiceAsync(typeof(DTE)).Result;
+            //DTE2 dte = (DTE2)this.package.GetServiceAsync(typeof(DTE));
+            //GeneratorTools tools = new GeneratorTools(dte);
+            //tools.Show();
             //// Show a message box to prove we were here
             //VsShellUtilities.ShowMessageBox(
             //    this.package,

@@ -7,6 +7,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <UseCodebase>true</UseCodebase>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -26,7 +27,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VsCodeGenerator</RootNamespace>
     <AssemblyName>VsCodeGenerator</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
@@ -177,6 +178,10 @@
     <ProjectReference Include="..\Core.Generators\Core.Generators.csproj">
       <Project>{5078c0c6-319b-4e14-9ec2-ad5619a22c4e}</Project>
       <Name>Core.Generators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
+      <Project>{5169497e-356c-4109-ba07-425f415c461d}</Project>
+      <Name>Core.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.UsuallyCommon\Core.UsuallyCommon.csproj">
       <Project>{39223b10-099f-4e78-a4c3-4f11178080a5}</Project>
