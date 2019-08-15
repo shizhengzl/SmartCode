@@ -19,7 +19,18 @@ namespace Core.UsuallyCommon
         /// <returns></returns>
         public static string GetFileContext(this string Paht)
         {
-            return File.ReadAllText(Paht, Encoding.UTF8);
+            return File.ReadAllText(Paht, Encoding.Default);
+        }
+
+        /// <summary>  
+        /// 向文本文件中写入内容  
+        /// </summary>  
+        /// <param name="filePath">文件的绝对路径</param>  
+        /// <param name="content">写入的内容</param>          
+        public static void WriteText(this string filePath, string content)
+        {
+            //向文件写入内容  
+            File.WriteAllText(filePath, content,Encoding.Default);
         }
     }
 }

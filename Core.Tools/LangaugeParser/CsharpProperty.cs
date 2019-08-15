@@ -27,6 +27,14 @@ namespace Core.Tools
         /// </summary>
         public string PropertyComment { get; set; }
 
-     
+        /// <summary>
+        /// 最大长度
+        /// </summary>
+        public Int64? MaxLength { get; set; }
+
+        /// <summary>
+        /// 是否必填
+        /// </summary>
+        public bool? IsRequire { get; set; }
     }
 }

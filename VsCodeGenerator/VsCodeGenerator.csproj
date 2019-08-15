@@ -179,6 +179,10 @@
       <Project>{5078c0c6-319b-4e14-9ec2-ad5619a22c4e}</Project>
       <Name>Core.Generators</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core.Tools.Migrations\Core.Tools.Migrations.csproj">
+      <Project>{39a62ed9-e51d-49d6-8981-6740f898f7fb}</Project>
+      <Name>Core.Tools.Migrations</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
       <Project>{5169497e-356c-4109-ba07-425f415c461d}</Project>
       <Name>Core.Tools</Name>

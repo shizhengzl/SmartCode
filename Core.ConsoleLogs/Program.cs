@@ -1,6 +1,5 @@
 ﻿using Core.Tools;
-using Core.Tools.Migrations;
-using Core.Toolss;
+using Core.Tools.Migrations; 
 using Core.UsuallyCommon;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -20,39 +19,46 @@ namespace Core.ConsoleLogs
         static void Main(string[] args)
         {
 
-            InitDataBaseHelper initDataBaseHelper = new InitDataBaseHelper();
+            //InitDataBaseHelper initDataBaseHelper = new InitDataBaseHelper();
 
-            DefaultDB dbContext = new DefaultDB();
-            var dbaddressre = dbContext.DataBaseAddresses.ToList();
-            foreach (var item in dbaddressre)
-            {
-                initDataBaseHelper.InitDataBase(item);
-
-
-                if(item.DataBases.Count > 0)
-                {
-                    foreach (var database in item.DataBases)
-                    {
-                        initDataBaseHelper.InitTable(database);
+            //DefaultDB dbContext = new DefaultDB();
+            //var dbaddressre = dbContext.DataBaseAddresses.ToList();
+            //foreach (var item in dbaddressre)
+            //{
+            //    initDataBaseHelper.InitDataBase(item);
 
 
-                        if(database.Tables.Count > 0)
-                        {
-                            var firsttable = database.Tables.FirstOrDefault();
-                            initDataBaseHelper.InitColumn(firsttable);
+            //    if(item.DataBases.Count > 0)
+            //    {
+            //        foreach (var database in item.DataBases)
+            //        {
+            //            initDataBaseHelper.InitTable(database);
+
+
+            //            if(database.Tables.Count > 0)
+            //            {
+            //                var firsttable = database.Tables.FirstOrDefault();
+            //                initDataBaseHelper.InitColumn(firsttable);
 
 
                           
-                            var b =  firsttable;
+            //                var b =  firsttable;
                              
-                        }
-                    }
-                }
-            }
-            Console.ReadLine();
+            //            }
+            //        }
+            //    }
+            //} 
+            const string csFile = @"E:\work\Yunshu\src\01_DataAccess\Zeus.Entity\Zeus\Entity\DepartmentVend.cs";
 
+            CsharpParser csharpHelper = new CsharpParser(csFile);
+            var classes = csharpHelper.GetClasses().FirstOrDefault();
+            var res = csharpHelper.GetCsharpClassProperty(classes);
+
+            //csharpHelper.ReplaceProperty(classes, res.Where(x => x.PropertyName == "Remark").FirstOrDefault(),
+            //     new CsharpProperty() { PropertyComment = "HHH", PropertyName = "TDOks", PropertyType = "Int32 ?" }
+            //    ); 
+            //csFile.WriteText(csharpHelper.roots.ToFullString());
             return;
-            const string csFile = @"D:\ClassDemo.cs";
             var text = csFile.GetFileContext();
             // Parse .cs file using Roslyn SyntaxTree
             var syntaxTree = CSharpSyntaxTree.ParseText(text);
