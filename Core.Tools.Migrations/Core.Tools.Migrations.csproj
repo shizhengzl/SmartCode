@@ -77,6 +77,14 @@
     <Compile Include="Migrations\201908130634368_initdatabase.Designer.cs">
       <DependentUpon>201908130634368_initdatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908170147449_changecolumns.cs" />
+    <Compile Include="Migrations\201908170147449_changecolumns.Designer.cs">
+      <DependentUpon>201908170147449_changecolumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908170205159_changecolumns1.cs" />
+    <Compile Include="Migrations\201908170205159_changecolumns1.Designer.cs">
+      <DependentUpon>201908170205159_changecolumns1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tables\Column.cs" />
@@ -103,6 +111,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908130634368_initdatabase.resx">
       <DependentUpon>201908130634368_initdatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908170147449_changecolumns.resx">
+      <DependentUpon>201908170147449_changecolumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908170205159_changecolumns1.resx">
+      <DependentUpon>201908170205159_changecolumns1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

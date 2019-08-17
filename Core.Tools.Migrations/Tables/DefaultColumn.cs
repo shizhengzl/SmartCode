@@ -38,7 +38,7 @@ namespace Core.Tools
         /// <summary>
         /// 长度
         /// </summary>
-        public int? MaxLength { get; set; }
+        public Int64 MaxLength { get; set; }
         /// <summary>
         /// 是否必填
         /// </summary>
@@ -55,5 +55,11 @@ namespace Core.Tools
         /// 数据库类型
         /// </summary>
         public string SQLType { get; set; }
+
+
+        /// <summary>
+        /// 表名
+        /// </summary>
+        public string Table { get; set; }
     }
 }

@@ -30,11 +30,17 @@ namespace Core.Tools
         /// <summary>
         /// 最大长度
         /// </summary>
-        public Int64? MaxLength { get; set; }
+        public Int64 MaxLength { get; set; }
 
         /// <summary>
         /// 是否必填
         /// </summary>
         public bool? IsRequire { get; set; }
+
+
+        /// <summary>
+        /// 表名
+        /// </summary>
+        public string Table { get; set; }
     }
 }

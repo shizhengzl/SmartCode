@@ -28,63 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneratorTools));
+            this.tabs = new System.Windows.Forms.TabControl();
+            this.tabCodeGenerator = new System.Windows.Forms.TabPage();
+            this.tabBaseSettings = new System.Windows.Forms.TabPage();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.tabsettings = new System.Windows.Forms.TabControl();
+            this.tabs.SuspendLayout();
+            this.tabBaseSettings.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabs
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(501, 250);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(200, 100);
-            this.tabControl1.TabIndex = 0;
+            this.tabs.Controls.Add(this.tabCodeGenerator);
+            this.tabs.Controls.Add(this.tabBaseSettings);
+            this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabs.Location = new System.Drawing.Point(0, 0);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(1200, 741);
+            this.tabs.TabIndex = 0;
             // 
-            // tabPage1
+            // tabCodeGenerator
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 74);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabCodeGenerator.Location = new System.Drawing.Point(4, 22);
+            this.tabCodeGenerator.Name = "tabCodeGenerator";
+            this.tabCodeGenerator.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCodeGenerator.Size = new System.Drawing.Size(1192, 715);
+            this.tabCodeGenerator.TabIndex = 0;
+            this.tabCodeGenerator.Text = "代码生成";
+            this.tabCodeGenerator.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabBaseSettings
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabBaseSettings.Controls.Add(this.tabsettings);
+            this.tabBaseSettings.Location = new System.Drawing.Point(4, 22);
+            this.tabBaseSettings.Name = "tabBaseSettings";
+            this.tabBaseSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBaseSettings.Size = new System.Drawing.Size(1192, 715);
+            this.tabBaseSettings.TabIndex = 1;
+            this.tabBaseSettings.Text = "基础数据设置";
+            this.tabBaseSettings.UseVisualStyleBackColor = true;
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "add_edit_24px.png");
+            this.imageList.Images.SetKeyName(1, "database_24px.png");
+            this.imageList.Images.SetKeyName(2, "edit_24px.png");
+            this.imageList.Images.SetKeyName(3, "folder_24px.png");
+            this.imageList.Images.SetKeyName(4, "generate_tables_24px.png");
+            this.imageList.Images.SetKeyName(5, "refresh_24px.png");
+            this.imageList.Images.SetKeyName(6, "remove_24px.png");
+            this.imageList.Images.SetKeyName(7, "server_24px.png");
+            this.imageList.Images.SetKeyName(8, "table_24px.png");
+            this.imageList.Images.SetKeyName(9, "dialog_ok_24px.png");
+            this.imageList.Images.SetKeyName(10, "error_24px.png");
+            // 
+            // tabsettings
+            // 
+            this.tabsettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabsettings.Location = new System.Drawing.Point(3, 3);
+            this.tabsettings.Name = "tabsettings";
+            this.tabsettings.SelectedIndex = 0;
+            this.tabsettings.Size = new System.Drawing.Size(1186, 709);
+            this.tabsettings.TabIndex = 0;
             // 
             // GeneratorTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 741);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabs);
             this.Name = "GeneratorTools";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GeneratorTools";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.GeneratorTools_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabs.ResumeLayout(false);
+            this.tabBaseSettings.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabs;
+        private System.Windows.Forms.TabPage tabCodeGenerator;
+        private System.Windows.Forms.TabPage tabBaseSettings;
+        public System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.TabControl tabsettings;
     }
 }
 

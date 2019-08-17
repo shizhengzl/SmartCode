@@ -33,7 +33,7 @@ namespace Core.Tools.Migrations
         //为您要在模型中包含的每种实体类型都添加 DbSet。有关配置和使用 Code First  模型
         //的详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=390109。
 
-        public virtual DbSet<DefaultColumn> Columns { get; set; }
+        public virtual DbSet<DefaultColumn> DefaultColumns { get; set; }
 
 
         public virtual DbSet<SQLConfig> SQLConfigs { get; set; }

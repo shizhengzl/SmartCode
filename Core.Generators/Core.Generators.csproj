@@ -105,6 +105,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\ButtonTextEnum.cs" />
+    <Compile Include="Tools\ExtenstionClass.cs" />
+    <Compile Include="Tools\GridViewExtension.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\ImageEnum.cs" />
+    <Compile Include="Tools\PanelExtension.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\ToolScriptButton.cs" />
+    <Compile Include="Tools\ToolScriptExtension.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\WindowExtension.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="GeneratorTools.resx">
       <DependentUpon>GeneratorTools.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +156,10 @@
     <ProjectReference Include="..\Core.Tools\Core.Tools.csproj">
       <Project>{5169497e-356c-4109-ba07-425f415c461d}</Project>
       <Name>Core.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.UsuallyCommon\Core.UsuallyCommon.csproj">
+      <Project>{39223B10-099F-4E78-A4C3-4F11178080A5}</Project>
+      <Name>Core.UsuallyCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

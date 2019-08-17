@@ -23,13 +23,38 @@ namespace Core.Generators
         public GeneratorTools()
         {
             InitializeComponent();
+            InitSystemConfig();
         }
+
+        #region SystemConfig
+
+        public void InitSystemConfig()
+        {
+            InitClass<DefaultColumn>();
+            InitClass<DataBaseAddress>();
+            InitClass<SQLConfig>(); 
+            InitClass<DataTypeConfig>();
+             
+        }
+
+        public void InitClass<T>() where T : class, new()
+        {
+            var type = typeof(T);
+            var className = type.Name;
+            TabPage tpclass = new TabPage() { Name = className, Text = className };
+
+            PanelExtension<T> panel = new PanelExtension<T>(this);
+            tpclass.Controls.Add(panel);
+            tabsettings.TabPages.Add(tpclass);
+        }
+        #endregion 
 
         public GeneratorTools(DTE2 dte)
         {
             InitializeComponent();
             ApplicationVsHelper._applicationObject = dte;
-            var fullname = dte.Solution.FileName; 
+            InitSystemConfig();
+            var fullname = dte.Solution.FileName;
             var projects = dte.Solution.Projects;
 
             List<String> listUrl = ApplicationVsHelper.GetSolutionFiles("*.cs");
@@ -56,11 +81,12 @@ namespace Core.Generators
                                 ColumnDescription = o.PropertyComment,
                                 CSharpType = o.PropertyType.Replace("?", string.Empty),
                                 IsRequire = !(o.PropertyType.IndexOf("?") > -1),
-                                MaxLength = 0
+                                MaxLength = o.MaxLength,
+                                Table  = o.Table
                             };
-                            if(!dbContext.Columns.Any(z=>z.ColumnName == column.ColumnName && z.CSharpType == column.CSharpType))
+                            if (!dbContext.DefaultColumns.Any(z => z.ColumnName == column.ColumnName && z.CSharpType == column.CSharpType && z.Table == column.Table))
                             {
-                                dbContext.Columns.Add(column);
+                                dbContext.DefaultColumns.Add(column);
                                 dbContext.SaveChanges();
                             }
 
@@ -69,7 +95,7 @@ namespace Core.Generators
                     }
                 });
             });
-            
+
         }
 
 

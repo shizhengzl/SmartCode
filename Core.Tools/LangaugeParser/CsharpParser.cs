@@ -147,7 +147,8 @@ namespace Core.Tools
                     PropertyComment = GetPropertyComment(x),
                     PropertyType = x.Type.ToStringExtension(),
                     MaxLength = x.Type.ToStringExtension().ToLower() == "string" ? maxlength : 0,
-                    IsRequire = !(x.Type.ToStringExtension().IndexOf("?") > -1)
+                    IsRequire = !(x.Type.ToStringExtension().IndexOf("?") > -1),
+                    Table = classes.Identifier.Text
                 });
             });
 

@@ -24,6 +24,7 @@ namespace VsCodeGenerator
         public const int CommandId = 0x0100;
         public const int CommandRightProject = 0x0200;
         public const int CommandRightNote = 0x0300;
+        public const int RightMenuFloder = 0x0300;
 
         /// <summary>
         /// Command menu group (command set GUID).
@@ -58,6 +59,10 @@ namespace VsCodeGenerator
             var menuCommandRightNoteID = new CommandID(CommandSet, CommandRightNote);
             var menuItemRightNote = new MenuCommand(this.Execute, menuCommandRightNoteID);
             commandService.AddCommand(menuItemRightNote);
+
+            var menuCommandRightFloderID = new CommandID(CommandSet, RightMenuFloder);
+            var menuItemRightFloder = new MenuCommand(this.Execute, menuCommandRightFloderID);
+            commandService.AddCommand(menuItemRightFloder);
         }
 
         /// <summary>

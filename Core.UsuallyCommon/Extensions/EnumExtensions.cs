@@ -87,6 +87,37 @@ namespace Core.UsuallyCommon
             return attribute == null ? value.ToString() : attribute.Description;
         }
 
+
+        /// <summary>
+        /// 枚举转List
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static List<string> EnumToList(this Type type)
+        {
+            List<string> list = new List<string>();
+            foreach (int i in Enum.GetValues(type))
+            {
+                list.Add(Enum.GetName(type, i));
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 枚举转换字典
+        /// </summary>
+        /// <param name="enumType"></param>
+        /// <returns></returns>
+        public static Dictionary<string, string> EnumToDictionaryReverse(this Type enumType)
+        {
+            Dictionary<string, string> list = new Dictionary<string, string>();
+            foreach (int i in Enum.GetValues(enumType))
+            {
+                list.Add(Enum.GetName(enumType, i), i.ToString());
+            }
+            return list;
+        }
+
     }
 
 

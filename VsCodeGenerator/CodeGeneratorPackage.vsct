@@ -47,6 +47,10 @@
       <Group guid="guidCodeGeneratorPackageCmdSet" id="RightMenuNote" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
       </Group>
+
+      <Group guid="guidCodeGeneratorPackageCmdSet" id="RightMenuFloder" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE"/>
+      </Group>
     </Groups>
 
     <!--Buttons section. -->
@@ -83,6 +87,15 @@
           <ButtonText>Item Menu</ButtonText>
         </Strings>
       </Button>
+
+
+      <Button guid="guidCodeGeneratorPackageCmdSet" id="RightFloderBtn" priority="0x0100" type="Button">
+        <Parent guid="guidCodeGeneratorPackageCmdSet" id="RightMenuFloder" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>添加DTO</ButtonText>
+        </Strings>
+      </Button>
       
     </Buttons>
 
@@ -106,10 +119,12 @@
       <IDSymbol name="MyMenuGroup" value="0x1020" /> 
       <IDSymbol name="RightMenuProject" value="0x1040" />
       <IDSymbol name="RightMenuNote" value="0x1060" />
+      <IDSymbol name="RightMenuFloder" value="0x1080" />
       
       <IDSymbol name="CodeGeneratorId" value="0x0100" />
       <IDSymbol name="RightMenuProjectBtn" value="0x0200" />
       <IDSymbol name="RightMenuNoteBtn" value="0x0300" />
+      <IDSymbol name="RightFloderBtn" value="0x0400" />
     </GuidSymbol>
 
     <GuidSymbol name="guidImages" value="{2442f42a-9dd3-475b-ae08-0f54fcf27c01}" >
