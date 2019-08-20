@@ -10,6 +10,7 @@ using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Task = System.Threading.Tasks.Task;
+using Core.UsuallyCommon;
 
 namespace VsCodeGenerator
 {
@@ -24,7 +25,7 @@ namespace VsCodeGenerator
         public const int CommandId = 0x0100;
         public const int CommandRightProject = 0x0200;
         public const int CommandRightNote = 0x0300;
-        public const int RightMenuFloder = 0x0300;
+        public const int RightMenuFloder = 0x0400;
 
         /// <summary>
         /// Command menu group (command set GUID).
@@ -109,12 +110,20 @@ namespace VsCodeGenerator
         private  void Execute(object sender, EventArgs e)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-
+            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName); 
             DTE2 dte = (DTE2)this.ServiceProvider.GetServiceAsync(typeof(DTE)).Result;
+            MenuStatus menuStatus = (sender as MenuCommand).CommandID.ID.ToString().ToEnum<MenuStatus>();
 
-            GeneratorTools tools = new GeneratorTools(dte);
-            tools.Show();
+
+            if (menuStatus == MenuStatus.Floder)
+            {
+               
+                SelectEntitys entitys = new SelectEntitys(dte);
+                entitys.Show();
+            }
+
+            //GeneratorTools tools = new GeneratorTools(dte, menuStatus);
+            //tools.Show();
 
             //DTE2 dte2 = await package.GetServiceAsync(typeof(DTE)).ConfigureAwait(false) as DTE2;
 

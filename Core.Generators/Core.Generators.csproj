@@ -97,6 +97,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneratorDto\SelectEntitys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneratorDto\SelectEntitys.Designer.cs">
+      <DependentUpon>SelectEntitys.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneratorTools.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Tools\ImageEnum.cs" />
+    <Compile Include="Tools\MenuStatus.cs" />
     <Compile Include="Tools\PanelExtension.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -121,6 +128,9 @@
     <Compile Include="Tools\WindowExtension.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="GeneratorDto\SelectEntitys.resx">
+      <DependentUpon>SelectEntitys.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GeneratorTools.resx">
       <DependentUpon>GeneratorTools.cs</DependentUpon>
     </EmbeddedResource>

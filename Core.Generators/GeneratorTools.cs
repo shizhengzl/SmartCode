@@ -49,7 +49,7 @@ namespace Core.Generators
         }
         #endregion 
 
-        public GeneratorTools(DTE2 dte)
+        public GeneratorTools(DTE2 dte , MenuStatus menuStatus)
         {
             InitializeComponent();
             ApplicationVsHelper._applicationObject = dte;
@@ -59,8 +59,14 @@ namespace Core.Generators
 
             List<String> listUrl = ApplicationVsHelper.GetSolutionFiles("*.cs");
 
+            List<String> ClassNames = new List<string>();
+            List<DefaultColumn> defaultColumns = new List<DefaultColumn>();
             List<ClassDeclarationSyntax> classDeclarationSyntaxes = new List<ClassDeclarationSyntax>();
             DefaultDB dbContext = new DefaultDB();
+
+
+
+
             listUrl.Where(y => !y.Contains("Debug") && !y.Contains("Release")).ToList().ForEach(x =>
             {
                 CsharpParser parser = new CsharpParser(x);
@@ -69,9 +75,15 @@ namespace Core.Generators
                 {
                     var s = parser.semanticModel.GetDeclaredSymbol(u).BaseType.Name;
                     if (s == "BaseEntity")
-                    {
-
+                    { 
                         var className = u.Identifier.Text;
+
+
+                        if(!ClassNames.Contains(className))
+                        {
+                            ClassNames.Add(className);
+                        }
+
                         var allproperty = parser.GetCsharpClassProperty(u);
                         allproperty.ForEach(o =>
                         {
@@ -84,18 +96,19 @@ namespace Core.Generators
                                 MaxLength = o.MaxLength,
                                 Table  = o.Table
                             };
+
+                            defaultColumns.Add(column);
                             if (!dbContext.DefaultColumns.Any(z => z.ColumnName == column.ColumnName && z.CSharpType == column.CSharpType && z.Table == column.Table))
                             {
                                 dbContext.DefaultColumns.Add(column);
                                 dbContext.SaveChanges();
-                            }
-
-                        });
-                        //classDeclarationSyntaxes.Add(u);
+                            } 
+                        }); 
                     }
                 });
             });
 
+           
         }
 
 

@@ -60,6 +60,28 @@ namespace Core.Tools
         }
 
         /// <summary>
+        /// 获取方法Commenet
+        /// </summary>
+        /// <param name="method"></param>
+        public static String GetClassComment(ClassDeclarationSyntax classes)
+        {
+            var comments = string.Empty;
+            if (classes.HasStructuredTrivia)
+            {
+                var comment = classes.GetLeadingTrivia().
+                 ToSyntaxTriviaList().Where(x => x.Kind() == SyntaxKind.SingleLineDocumentationCommentTrivia || x.Kind() == SyntaxKind.SingleLineCommentTrivia
+                 ).FirstOrDefault();
+                if (comment.GetStructure() != null)
+                {
+                    comments = comment.GetStructure().GetText().ToString().Replace("///", string.Empty);
+                    comments = Regex.Replace(comments, @"<(.[^>]*)>", "", RegexOptions.IgnoreCase);
+                    comments = Regex.Replace(comments, @"\r\n", "", RegexOptions.IgnoreCase);
+                }
+            }
+            return comments.Trim();
+        }
+
+        /// <summary>
         /// 获取最后文本
         /// </summary>
         /// <returns></returns>

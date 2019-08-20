@@ -93,6 +93,7 @@
     <Compile Include="Tables\DataBaseType.cs" />
     <Compile Include="Tables\DataTypeConfig.cs" />
     <Compile Include="Tables\DefaultColumn.cs" />
+    <Compile Include="Tables\Snippet.cs" />
     <Compile Include="Tables\SQLCofig.cs" />
     <Compile Include="Tables\Table.cs" />
   </ItemGroup>
