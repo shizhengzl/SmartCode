@@ -113,17 +113,17 @@ namespace VsCodeGenerator
             string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName); 
             DTE2 dte = (DTE2)this.ServiceProvider.GetServiceAsync(typeof(DTE)).Result;
             MenuStatus menuStatus = (sender as MenuCommand).CommandID.ID.ToString().ToEnum<MenuStatus>();
+            GeneratorTools tools = new GeneratorTools(dte, menuStatus);
+            tools.Show();
 
-
-            if (menuStatus == MenuStatus.Floder)
-            {
+            //if (menuStatus == MenuStatus.Floder)
+            //{
                
-                SelectEntitys entitys = new SelectEntitys(dte);
-                entitys.Show();
-            }
+            //    SelectEntitys entitys = new SelectEntitys(dte);
+            //    entitys.Show();
+            //}
 
-            //GeneratorTools tools = new GeneratorTools(dte, menuStatus);
-            //tools.Show();
+         
 
             //DTE2 dte2 = await package.GetServiceAsync(typeof(DTE)).ConfigureAwait(false) as DTE2;
 

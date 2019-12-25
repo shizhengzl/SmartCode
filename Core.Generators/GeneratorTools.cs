@@ -61,11 +61,8 @@ namespace Core.Generators
 
             List<String> ClassNames = new List<string>();
             List<DefaultColumn> defaultColumns = new List<DefaultColumn>();
-            List<ClassDeclarationSyntax> classDeclarationSyntaxes = new List<ClassDeclarationSyntax>();
+            //List<ClassDeclarationSyntax> classDeclarationSyntaxes = new List<ClassDeclarationSyntax>();
             DefaultDB dbContext = new DefaultDB();
-
-
-
 
             listUrl.Where(y => !y.Contains("Debug") && !y.Contains("Release")).ToList().ForEach(x =>
             {
@@ -77,12 +74,12 @@ namespace Core.Generators
                     if (s == "BaseEntity")
                     { 
                         var className = u.Identifier.Text;
-
-
-                        if(!ClassNames.Contains(className))
+                        if(!ClassNames.Contains(className)) 
                         {
                             ClassNames.Add(className);
                         }
+
+                        var classcomment = CsharpParser.GetClassComment(u);
 
                         var allproperty = parser.GetCsharpClassProperty(u);
                         allproperty.ForEach(o =>
@@ -94,7 +91,8 @@ namespace Core.Generators
                                 CSharpType = o.PropertyType.Replace("?", string.Empty),
                                 IsRequire = !(o.PropertyType.IndexOf("?") > -1),
                                 MaxLength = o.MaxLength,
-                                Table  = o.Table
+                                Table  = o.Table,
+                                TableDescription = classcomment
                             };
 
                             defaultColumns.Add(column);
@@ -107,8 +105,6 @@ namespace Core.Generators
                     }
                 });
             });
-
-           
         }
 
 
