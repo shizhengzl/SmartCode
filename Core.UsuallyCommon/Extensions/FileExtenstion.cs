@@ -32,5 +32,38 @@ namespace Core.UsuallyCommon
             //向文件写入内容  
             File.WriteAllText(filePath, content,Encoding.Default);
         }
+
+
+
+        /// <summary>
+        /// 获取文件夹下所有扩展文件
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="ext"></param>
+        /// <param name="list"></param>
+        public static void GetFileByExtension(string filePath, string ext, ref List<string> list)
+        {
+
+            if (!System.IO.Directory.Exists(filePath))
+                return;
+            try
+            {
+                DirectoryInfo folder = new DirectoryInfo(filePath);
+                FileInfo[] chldFiles = folder.GetFiles(ext);
+                foreach (FileInfo chlFile in chldFiles)
+                {
+                    list.Add(chlFile.FullName);
+                }
+                DirectoryInfo[] chldFolders = folder.GetDirectories();
+                foreach (DirectoryInfo chldFolder in chldFolders)
+                {
+                    GetFileByExtension(chldFolder.FullName, ext, ref list);
+                }
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+        }
     }
 }

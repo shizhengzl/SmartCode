@@ -20,11 +20,11 @@ namespace Core.Generators
 {
     public partial class GeneratorTools : Form
     {
-        public GeneratorTools()
-        {
-            InitializeComponent();
-            InitSystemConfig();
-        }
+        //public GeneratorTools()
+        //{
+        //    InitializeComponent();
+        //    //InitSystemConfig();
+        //}
 
         #region SystemConfig
 
@@ -49,30 +49,32 @@ namespace Core.Generators
         }
         #endregion 
 
-        public GeneratorTools(DTE2 dte , MenuStatus menuStatus)
+        public GeneratorTools()//DTE2 dte , MenuStatus menuStatus)
         {
             InitializeComponent();
-            ApplicationVsHelper._applicationObject = dte;
-            InitSystemConfig();
-            var fullname = dte.Solution.FileName;
-            var projects = dte.Solution.Projects;
+        //    ApplicationVsHelper._applicationObject = dte;
+        //    InitSystemConfig();
+        //    var fullname = dte.Solution.FileName;
+        //    var projects = dte.Solution.Projects;
 
-            List<String> listUrl = ApplicationVsHelper.GetSolutionFiles("*.cs");
+        //    List<String> listUrl = ApplicationVsHelper.GetSolutionFiles("*.cs");
+             List<String> listUrl = new List<string>();
+            Core.UsuallyCommon.FileExtenstion.GetFileByExtension(@"D:\workcode\emps\trunk\Entity","*.cs",ref listUrl);
 
             List<String> ClassNames = new List<string>();
             List<DefaultColumn> defaultColumns = new List<DefaultColumn>();
             //List<ClassDeclarationSyntax> classDeclarationSyntaxes = new List<ClassDeclarationSyntax>();
             DefaultDB dbContext = new DefaultDB();
 
-            listUrl.Where(y => !y.Contains("Debug") && !y.Contains("Release")).ToList().ForEach(x =>
+            listUrl.ForEach(x =>
             {
                 CsharpParser parser = new CsharpParser(x);
                 var classes = parser.GetClasses();
                 classes.ForEach(u =>
                 {
-                    var s = parser.semanticModel.GetDeclaredSymbol(u).BaseType.Name;
-                    if (s == "BaseEntity")
-                    { 
+                    //var s = parser.semanticModel.GetDeclaredSymbol(u).BaseType.Name;
+                    //if (s == "BaseEntity")
+                    //{ 
                         var className = u.Identifier.Text;
                         if(!ClassNames.Contains(className)) 
                         {
@@ -96,15 +98,16 @@ namespace Core.Generators
                             };
 
                             defaultColumns.Add(column);
-                            if (!dbContext.DefaultColumns.Any(z => z.ColumnName == column.ColumnName && z.CSharpType == column.CSharpType && z.Table == column.Table))
-                            {
-                                dbContext.DefaultColumns.Add(column);
-                                dbContext.SaveChanges();
-                            } 
+                            //if (!dbContext.DefaultColumns.Any(z => z.ColumnName == column.ColumnName && z.CSharpType == column.CSharpType && z.Table == column.Table))
+                            //{
+                            //    dbContext.DefaultColumns.Add(column);
+                            //    dbContext.SaveChanges();
+                            //} 
                         }); 
-                    }
+                   // }
                 });
             });
+            var rs = defaultColumns.Where(o => o.ColumnDescription.Length > 0);
         }
 
 
